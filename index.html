@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RP Chat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button id="theme-toggle" style="position: absolute; top: 10px; right: 10px;">🌙</button>
+    <div id="login-container">
+        <h2>Вход</h2>
+        <input type="text" id="username" placeholder="Имя пользователя">
+        <input type="password" id="password" placeholder="Пароль">
+        <button id="login-btn">Войти</button>
+        <button id="register-btn">Регистрация</button>
+        <div id="login-error"></div>
+    </div>
+    <div id="app" style="display: none;">
+        <button id="logout-btn" style="position: absolute; top: 10px; right: 50px;">Выйти</button>
+        <button id="toggle-characters-btn" class="mobile-only">Персонажи</button>
+        <div id="character-container">
+            <h2>Персонажи</h2>
+            <select id="character-select">
+                <option value="">Выберите персонажа</option>
+            </select>
+            <button id="create-character-btn">Создать нового персонажа</button>
+            <button id="edit-character-btn" style="display: none;">Изменить персонажа</button>
+            <button id="delete-character-btn" style="display: none;">Удалить персонажа</button>
+            <div id="create-character-form" style="display: none;">
+                <input type="text" id="new-name" placeholder="Имя персонажа" maxlength="20">
+                <input type="file" id="new-avatar-file" accept="image/*">
+                <input type="text" id="new-avatar-url" placeholder="Или URL аватара" style="display: none;">
+                <button id="save-character-btn">Сохранить</button>
+                <button id="cancel-create-btn">Отмена</button>
+            </div>
+            <h3>Быстрые фразы</h3>
+            <div id="quick-phrases">
+                <!-- Динамически добавлено -->
+            </div>
+            <input type="number" id="phrase-number" placeholder="Номер" min="1" max="10">
+            <input type="text" id="phrase-text" placeholder="Фраза">
+            <button id="save-phrase-btn">Сохранить фразу</button>
+        </div>
+        <div id="chat-container">
+            <div id="messages"></div>
+            <div id="input-container">
+                <label><input type="checkbox" id="ooc-toggle"> OOC</label>
+                <input type="text" id="message-input" placeholder="Введите ваше сообщение..." maxlength="200">
+                <button id="send-button">Отправить</button> 
+            </div>
+        </div>
+        <div id="combat-modal" style="display: none;">
+            <div id="combat-ui">
+                <h3>Бой</h3>
+                <div id="combat-players"></div>
+                <button id="attack-btn">Атаковать</button>
+                <button id="defend-btn">Защититься</button>
+                <button id="end-combat-btn">Закончить бой</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
